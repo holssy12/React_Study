@@ -3,10 +3,13 @@
 */
 
 // components 디렉터리에 생성한 ExpenseItem 컴포넌트를 불러온다.
-import ExpenseItem from "./components/ExpenseItem";
+import Expenses from "./components/Expenses/Expenses";
+
+// React 모듈 내부 동작을 알기 위해 import.
+import React from "react";
 
 // JSX 구문을 이용해, 자바스크립트 안에서 html로 작성된 구문을 return할 수 있다.
-function App() {
+const App = () => {
   const expenses = [
     {
       id: "e1",
@@ -34,34 +37,24 @@ function App() {
     <div>
       <h2>Let's get started!</h2>
       <p>This is also visible!</p>
-
       {/*
         사용자 정의 컴포넌트는 아래와 같이 html 태그처럼 작성하여 사용할 수 있다.
         단, 규칙으로 첫 글자는 대문자여야 한다.
       */}
-      <ExpenseItem
-        title={expenses[0].title}
-        amount={expenses[0].amount}
-        date={expenses[0].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[1].title}
-        amount={expenses[1].amount}
-        date={expenses[1].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[2].title}
-        amount={expenses[2].amount}
-        date={expenses[2].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[3].title}
-        amount={expenses[3].amount}
-        date={expenses[3].date}
-      ></ExpenseItem>
+      <Expenses items={expenses} />
     </div>
   );
-}
+
+  // 위 코드를 React 모듈로 변환한 코드.
+  // JSX 코드를 변환하기 위해선 React 모듈이 필요하지만,
+  // 최신 셋업에서는 명시적으로 import하지 않아도, 내장되어 있다.
+  // return React.createElement(
+  //   "div",
+  //   {},
+  //   React.createElement("h2", {}, "Let's get started!"),
+  //   React.createElement(Expenses, { items: expenses })
+  // );
+};
 
 // App.js 파일을 내보내서 쓸 수 있게 한다.
 export default App;

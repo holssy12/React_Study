@@ -1,3 +1,6 @@
+// 달력 컴포넌트 불러옴.
+import ExpenseDate from "./ExpenseDate";
+import Card from "../UI/Card";
 import "./ExpenseItem.css";
 
 // props: 사용자 지정 요소에서 얻는 속성에 대한 모든 값을 갖고 있는 객체.
@@ -10,23 +13,15 @@ function ExpenseItem(props) {
   // const expenseTitle = "Car Insurance";
   // const expenseAmount = 294.67;
 
-  const month = props.date.toLocaleString("en-us", { month: "long" });
-  const day = props.date.toLocaleString("en-us", { day: "2-digit" });
-  const year = props.date.getFullYear();
-
   return (
-    <div className="expense-item">
-      <div>
-        <div>{month}</div>
-        <div>{year}</div>
-        <div>{day}</div>
-      </div>
-      <div>{props.date.toISOString()}</div>
+    // Card : Wrapper 컴포넌트.
+    <Card className="expense-item">
+      <ExpenseDate date={props.date} />
       <div className="expense-item__description">
         <h2>{props.title}</h2>
         <div className="expense-item__price">${props.amount}</div>
       </div>
-    </div>
+    </Card>
   );
 }
 
