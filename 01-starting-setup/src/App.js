@@ -8,6 +8,8 @@ import Expenses from "./components/Expenses/Expenses";
 // React 모듈 내부 동작을 알기 위해 import.
 import React from "react";
 
+import NewExpense from "./components/NewExpense/NewExpense";
+
 // JSX 구문을 이용해, 자바스크립트 안에서 html로 작성된 구문을 return할 수 있다.
 const App = () => {
   const expenses = [
@@ -35,8 +37,7 @@ const App = () => {
   return (
     // 목표 상태.
     <div>
-      <h2>Let's get started!</h2>
-      <p>This is also visible!</p>
+      <NewExpense />
       {/*
         사용자 정의 컴포넌트는 아래와 같이 html 태그처럼 작성하여 사용할 수 있다.
         단, 규칙으로 첫 글자는 대문자여야 한다.
